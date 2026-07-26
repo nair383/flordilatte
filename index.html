@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Fior Di Latte Pizzeria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Fijo Superior (Estilo App Nativa) -->
+    <header class="mobile-header">
+        <div class="brand-info">
+            <span class="status-dot"></span>
+            <div>
+                <h1>Fior Di Latte</h1>
+                <p>Pizzería Artesanal</p>
+            </div>
+        </div>
+        <a href="https://wa.me/56982172980" class="header-wa-btn" target="_blank" aria-label="WhatsApp">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+    </header>
+
+    <!-- Contenedor General Adaptado a Pantallas Pequeñas -->
+    <main class="mobile-wrapper">
+
+        <!-- Hero Card Compacto -->
+        <section class="hero-card">
+            <div class="hero-img-wrap">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop" alt="Local Fior Di Latte">
+                <div class="hero-gradient"></div>
+            </div>
+            <div class="hero-text">
+                <span class="hero-badge">⭐ 4.8 · El Líbano 2732, Macul</span>
+                <h2>Masas madre & hornos a fuego vivo</h2>
+                <p>Martes a domingo desde las 18:00 hrs.</p>
+                <div class="hero-btns">
+                    <a href="#menuSection" class="btn-primary">Ver Carta</a>
+                    <a href="https://wa.me/56982172980" class="btn-secondary" target="_blank">Pedir</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros Horizontales Deslizables -->
+        <div class="categories-bar">
+            <div class="categories-scroll">
+                <button class="cat-pill active" onclick="filterCategory('all', this)">🔥 Todo</button>
+                <button class="cat-pill" onclick="filterCategory('pizzas', this)">🍕 Pizzas</button>
+                <button class="cat-pill" onclick="filterCategory('picar', this)">🧄 Para Picar</button>
+                <button class="cat-pill" onclick="filterCategory('promos', this)">🎉 Promociones</button>
+            </div>
+        </div>
+
+        <!-- Buscador Rápido -->
+        <div class="search-wrap">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="liveSearch" placeholder="Busca tu pizza o ingrediente..." oninput="liveFilter()">
+        </div>
+
+        <!-- Listado de Productos -->
+        <div class="menu-list" id="menuSection">
+            
+            <div class="item-card" data-category="pizzas" data-name="pizza genova">
+                <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=300&auto=format&fit=crop" alt="Génova">
+                </div>
+                <div class="item-info">
+                    <div class="item-top">
+                        <h3>Pizza Génova</h3>
+                        <span class="item-price">Med: $9.600 | Fam: $12.500</span>
+                    </div>
+                    <p>Pomodoro, mozzarella, champiñones, cebolla morada, salame y queso azul.</p>
+                </div>
+            </div>
+
+            <div class="item-card" data-category="pizzas" data-name="pizza mechada">
+                <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=300&auto=format&fit=crop" alt="Mechada">
+                </div>
+                <div class="item-info">
+                    <div class="item-top">
+                        <h3>Pizza Mechada</h3>
+                        <span class="item-price">Med: $10.400 | Fam: $13.500</span>
+                    </div>
+                    <p>Pomodoro, mozzarella, cebolla morada, tocino y jugosa carne mechada.</p>
+                </div>
+            </div>
+
+            <div class="item-card" data-category="pizzas" data-name="pizza margherita">
+                <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143?q=80&w=300&auto=format&fit=crop" alt="Margherita">
+                </div>
+                <div class="item-info">
+                    <div class="item-top">
+                        <h3>Pizza Margherita</h3>
+                        <span class="item-price">Med: $7.100 | Fam: $8.200</span>
+                    </div>
+                    <p>Pomodoro, auténtica mozzarella y albahaca fresca.</p>
+                </div>
+            </div>
+
+            <div class="item-card" data-category="pizzas" data-name="pizza hawaiana">
+                <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=300&auto=format&fit=crop" alt="Hawaiana">
+                </div>
+                <div class="item-info">
+                    <div class="item-top">
+                        <h3>Pizza Hawaiana</h3>
+                        <span class="item-price">Med: $8.500 | Fam: $11.100</span>
+                    </div>
+                    <p>Pomodoro, mozzarella, piña jugosa y jamón.</p>
+                </div>
+            </div>
+
+            <div class="item-card" data-category="pizzas" data-name="pizza pepperoni">
+                <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=300&auto=format&fit=crop" alt="Pepperoni">
+                </div>
+                <div class="item-info">
+                    <div class="item-top">
+                        <h3>Pizza Pepperoni</h3>
+                        <span class="item-price">Med: $8.500 | Fam: $11.100</span>
+                    </div>
+                    <p>Pomodoro, mozzarella, pepperoni, pimentón y toque de merquén.</p>
+                </div>
+            </div>
+
+            <div class="item-card" data-category="picar" data-name="palitos de ajo">
+                <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=300&auto=format&fit=crop" alt="Ajo">
+                </div>
+                <div class="item-info">
+                    <div class="item-top">
+                        <h3>Palitos de Ajo</h3>
+                        <span class="item-price">$3.300</span>
+                    </div>
+                    <p>Rebosados en salsa de ajo con dip especial de la casa.</p>
+                </div>
+            </div>
+
+            <div class="item-card" data-category="picar" data-name="pan de queso">
+                <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=300&auto=format&fit=crop" alt="Queso">
+                </div>
+                <div class="item-info">
+                    <div class="item-top">
+                        <h3>Pan de Queso</h3>
+                        <span class="item-price">$4.500</span>
+                    </div>
+                    <p>Cubierta generosa de mozzarella y salsa de la casa.</p>
+                </div>
+            </div>
+
+            <div class="item-card" data-category="promos" data-name="promocion 1">
+                <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=300&auto=format&fit=crop" alt="Promo">
+                </div>
+                <div class="item-info">
+                    <div class="item-top">
+                        <h3>Promoción 1 (Dúo)</h3>
+                        <span class="item-price">2 Med: $14.990 | 2 Fam: $18.990</span>
+                    </div>
+                    <p>Elige entre Margherita, Hawaiana, Turín, Vegetariana y Pompeya.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Widget Calculadora de Pedido -->
+        <section class="calc-widget">
+            <div class="calc-top">
+                <span>🛒</span>
+                <div>
+                    <h4>Calculadora Rápida</h4>
+                    <p>Estima tu total para WhatsApp</p>
+                </div>
+            </div>
+            
+            <div class="calc-row">
+                <span>Cantidad:</span>
+                <div class="counter-stepper">
+                    <button onclick="updatePeople(-1)">-</button>
+                    <span id="peopleNum">1</span>
+                    <button onclick="updatePeople(1)">+</button>
+                </div>
+            </div>
+
+            <div class="calc-total">
+                <span>Total referencial:</span>
+                <strong id="estimatedSum">$11.100</strong>
+            </div>
+
+            <a href="#" id="waOrderLink" class="btn-main-action" target="_blank">Enviar Pedido por WhatsApp</a>
+        </section>
+
+        <!-- Ubicación -->
+        <section class="location-box">
+            <h4>📍 Ubicación</h4>
+            <p>El Líbano 2732, Macul</p>
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.5!2d-70.6!3d-33.47!2m3!1f0!2f0!3f0!3m2!1f1024!2f768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sEl+Libano+2732%2C+Macul!5e0!3m2!1ses!2scl!4v1650000000000!5m2!1ses!2scl" loading="lazy"></iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Dock Inferior Fijo -->
+    <nav class="bottom-dock">
+        <a href="#menuSection" class="dock-item active">
+            <span>🍕</span>
+            <small>Carta</small>
+        </a>
+        <a href="https://wa.me/56982172980" class="dock-item" target="_blank">
+            <span>💬</span>
+            <small>WhatsApp</small>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=El+Libano+2732+Macul" class="dock-item" target="_blank">
+            <span>📍</span>
+            <small>Mapa</small>
+        </a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
