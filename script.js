@@ -1,10 +1,8 @@
-// Filtro por categorías con control de estado activo
 function filterCategory(category, pillElement) {
-    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
     pillElement.classList.add('active');
 
-    const cards = document.querySelectorAll('.food-card');
-    cards.forEach(card => {
+    document.querySelectorAll('.item-card').forEach(card => {
         const cardCat = card.getAttribute('data-category');
         if (category === 'all' || cardCat === category) {
             card.style.display = 'flex';
@@ -14,14 +12,12 @@ function filterCategory(category, pillElement) {
     });
 }
 
-// Búsqueda instantánea reactiva
 function liveFilter() {
     const query = document.getElementById('liveSearch').value.toLowerCase().trim();
-    const cards = document.querySelectorAll('.food-card');
-
-    cards.forEach(card => {
+    
+    document.querySelectorAll('.item-card').forEach(card => {
         const name = card.getAttribute('data-name');
-        const desc = card.querySelector('.food-details').textContent.toLowerCase();
+        const desc = card.querySelector('.item-info').textContent.toLowerCase();
 
         if (name.includes(query) || desc.includes(query) || query === '') {
             card.style.display = 'flex';
@@ -31,7 +27,6 @@ function liveFilter() {
     });
 }
 
-// Lógica de cálculo dinámico para el pedido por WhatsApp
 let itemCount = 1;
 function updatePeople(change) {
     itemCount += change;
@@ -47,7 +42,6 @@ function updatePeople(change) {
     document.getElementById('waOrderLink').href = `https://wa.me/56982172980?text=${textWa}`;
 }
 
-// Inicialización automática al cargar la interfaz
 document.addEventListener('DOMContentLoaded', () => {
     updatePeople(0);
 });
